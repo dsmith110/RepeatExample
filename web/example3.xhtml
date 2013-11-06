@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <h:outputStylesheet library="css" name="table-style.css"  />
+    </h:head>
+    <h:body>
+        <h1>Example 3</h1>
+
+    		<table class="order-table">
+    			<tr>
+                                <th class="order-table-header">Order No</th>
+    				<th class="order-table-header">Name</th>
+    				<th class="order-table-header">Price</th>
+    				<th class="order-table-header">Quantity</th>
+    				
+    			</tr>
+    			
+	    			<ui:repeat var="order" value="#{orderBean.orders}" varStatus="status">
+	    				<h:panelGroup rendered="#{status.even}">
+		    				<tr>
+                                                    <td class="order-table-even-row">#{order.orderNo}</td>
+                                                    <td class="order-table-even-row">#{order.name}</td>
+                                                    <td class="order-table-even-row">#{order.price}</td>
+                                                    <td class="order-table-even-row">#{order.qty}</td>
+		    					
+		    				</tr>
+	    				</h:panelGroup>
+	    				<h:panelGroup rendered="#{status.odd}">
+	    					<tr>
+                                                    <td class="order-table-odd-row">#{order.orderNo}</td>
+                                                    <td class="order-table-odd-row">#{order.name}</td>
+                                                    <td class="order-table-odd-row">#{order.price}</td>
+                                                    <td class="order-table-odd-row">#{order.qty}</td>
+		    					
+		    				</tr>
+	    				</h:panelGroup>
+	    			</ui:repeat>
+    			
+    		</table>
+    </h:body>
+</html>
+
